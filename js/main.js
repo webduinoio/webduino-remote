@@ -1,11 +1,12 @@
 //https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6
 ~async function () {
-
-  // 怪獸定位
+  // 凱比定位
+  const content = document.querySelector('.content');
+  content.classList.remove('loading');
   const kebbi = document.getElementById('svgKebbi');
   const circle = document.querySelector('.circle');
-  const ww = window.innerWidth;
-  const wh = window.innerHeight;
+  const ww = content.offsetWidth;
+  const wh = content.offsetHeight;
   const ox = (ww - kebbi.offsetWidth) / 2;
   const oy = (wh * 0.8 - kebbi.offsetHeight) / 2;
   kebbi.style.left = `${ox}px`;
@@ -63,7 +64,6 @@
   const popup = document.getElementById('popup');
   const popupClose = document.getElementById('popupClose');
   const saveUrl = document.getElementById('saveUrl');
-  new ClipboardJS('#saveUrl');
   popupClose.addEventListener('click', () => {
     popup.classList.remove('show');
   });
@@ -71,9 +71,20 @@
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
     saveUrl.innerText = urlOrigin + '/#' + write.key;
-    saveUrl.click();
     window.history.pushState({}, 0, urlOrigin + '#' + write.key);
     document.getSelection().removeAllRanges();
+  });
+
+  // 點擊後複製連結
+  const copy = document.getElementById('copy');
+  new ClipboardJS('#copy');
+  copy.addEventListener('click', () => {
+    copy.innerText = '複製成功';
+    copy.classList.add('copied');
+    setTimeout(() => {
+      copy.innerText = '複製連結';
+      copy.classList.remove('copied');
+    }, 1000);
   });
 
   /* firebase 讀檔 */
@@ -120,13 +131,11 @@
 
   // 顯示十顆按鈕的文字
   const btn = document.querySelectorAll('.btn');
-  function buttonText() {
-    btn.forEach(e => {
-      let name = e.id;
-      e.innerHTML = `<span>${list[name]}</span>`;
-    });
-  }
-  buttonText();
+  let btnObj = {};
+  btn.forEach(e => {
+    btnObj[e.id] = document.getElementById(e.id);
+    e.innerHTML = `<span>${list[e.id]}</span>`;
+  });
 
   // 暫存到 localStorage 的函式
   function save(val) {
@@ -142,12 +151,9 @@
     self.addEventListener('input', () => {
       window.history.pushState({}, 0, urlOrigin);
       list[m] = self.value;
-      btn.forEach(ele => {
-        if (ele.id == m) {
-          ele.innerHTML = `<span>${self.value}</span>`;
-        }
-      });
-      buttonText();
+      if (btnObj[m]) {
+        btnObj[m].innerHTML = `<span>${self.value}</span>`;
+      }
       save(list);
       if (m == 'topic2') {
         mqttGet(list.topic2);
@@ -163,7 +169,6 @@
   }
   // 發送 mqtt 訊號
   const mqtt = async function (topic, msg) {
-    console.log(topic,list.topic1);
     if (topic == list.topic1) {
       webduinoBroadcastor.send({
         topic: topic,
@@ -178,7 +183,6 @@
   const mqttGet = async function (topic) {
     await webduinoBroadcastor.onMessage(topic, async (msg) => {
       if (topic == list.topic2) {
-        console.log(msg);
         clearTimeout(messageTimer);
         messageH4.innerText = msg;
         message.classList.add('show');

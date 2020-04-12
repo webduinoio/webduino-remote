@@ -37,9 +37,9 @@ body * {
 
 body {
   background: -webkit-radial-gradient(50% 150%,
-      #00a5bc 0%,
-      #206b81 10%,
-      #21687e 35%,
+      #00a5cc 0%,
+      #206b99 10%,
+      #216888 35%,
       #031b31 70%,
       #000 100%);
 }
@@ -47,13 +47,10 @@ body {
 /* content */
 
 .content {
-  position: absolute;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
-  top: 0;
-  left: 0;
 }
 
 .content.loading *{
@@ -223,7 +220,7 @@ body {
 #s2 {
   z-index: 5;
   width: 30px;
-  position: fixed;
+  position: absolute;
   top: 18px;
   left: 18px;
   opacity: .8
@@ -336,21 +333,11 @@ body {
   color: #fff;
   vertical-align: top;
   -webkit-user-select: none;
+  transition:.3s;
 }
 
-#main02 .btn:hover {
-  background: rgba(255, 255, 255, .3);
-  animation-name:hover;
-  animation-duration:.5s;
-  animation-fill-mode:forwards;
-}
-@keyframes hover{
-  from{
-    background: rgba(255, 255, 255, .4);
-  }
-  to{
-    background: rgba(255, 255, 255, .1);
-  }
+#main02 .btn.touched {
+  background: rgba(255, 255, 255, .4);
 }
 
 #main02 .btn::before {
@@ -378,14 +365,14 @@ body {
   border-radius:20px;
   padding:30px 10px;
   text-align:center;
-  background:rgba(50,100,150,.8);
+  background:rgba(50,100,150,.9);
   color:#fff;
   opacity:0;
   pointer-events: none;
   transition:.3s;
 }
 #popup.show{
-  top:22%;
+  top:17%;
   opacity:1;
   pointer-events: auto;
 }
@@ -401,7 +388,19 @@ body {
 }
 #saveUrl::selection{
   color:#fff;
-  background:#357;
+  background:none;
+}
+#copy{
+  font-size:1.1rem;
+  padding:10px 30px;
+  width:max-content;
+  margin:20px auto 0;
+  background:#e50;
+  border-radius:20px;
+}
+#copy.copied{
+  pointer-events: none;
+  opacity:.7;
 }
 #popupClose{
   position:absolute;
