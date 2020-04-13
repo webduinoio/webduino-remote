@@ -2,7 +2,9 @@
 
 這是針對 Webduino 所設計的萬用遙控器，可以透過虛擬機器人搖桿或十顆按鈕發送網路廣播訊號，輕鬆串連物聯網的各種生活體驗。
 
-> 網址：[https://www.oxxostudio.tw/webduino-remote/](https://www.oxxostudio.tw/webduino-remote/) ( 建議使用手機的 Chrome 開啟 )
+> 網址：[https://www.oxxostudio.tw/webduino-remote/](https://www.oxxostudio.tw/webduino-remote/)
+
+ ( 由於一些軟體內建的瀏覽器，手勢下拉時會關閉畫面，因此比較建議使用手機的 Chrome 操作 )
 
 <br/>
 <br/>
@@ -53,6 +55,14 @@
 設定廣播接收頻道名稱，若從這個頻道接收到訊號，就會以類似推播的形式，顯示在畫面上方。( 三秒後訊息會自動消失 )
 
 ![](media/tutorial-07.gif)
+
+<br/>
+
+### 4. 存擋和分享
+
+在廣播訊息設定畫面的最下方，有一個存檔案的按鈕，點擊後會儲存產生一組連結，複製這組連結再次打開，就能看到原本訊息設定的內容。
+
+![](media/tutorial-11.gif)
 
 <br/>
 <br/>
