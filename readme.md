@@ -81,6 +81,8 @@
 
 開啟 Web:Bit 教育版 ( [http://webbit.webduino.io/](http://webbit.webduino.io/) )，使用擴充功能裡的「*網路廣播積木*」，即可進行串接。
 
+> 範例展示：[https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6](https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6)
+
 ![](media/tutorial-09.gif)
 
 <br/>
