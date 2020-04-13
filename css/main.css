@@ -251,14 +251,6 @@ body {
   pointer-events: none;
 }
 
-#main01 footer {
-  position: absolute;
-  bottom: 2%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
 #main01 svg {
   width: 100%;
 }
@@ -298,13 +290,28 @@ body {
   border-radius: 50%;
 }
 
-.monster-btn {
+#main01 footer {
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#main01 footer .monster-btn {
   display: inline-block;
   width: 22%;
   max-width: 20vh;
   margin: 0.5%;
   z-index: 2;
-  -webkit-user-select: none;
+  vertical-align: middle;
+}
+#main01 footer .monster-btn svg{
+  transition:.3s;
+  background:none;
+}
+#main01 footer .monster-btn.click svg{
+  width:90%;
 }
 
 /* main02 */
@@ -324,10 +331,10 @@ body {
 
 #main02 .btn {
   display: inline-block;
-  width: 40%;
-  height: 16%;
-  border: 3px solid #ccc;
-  margin: 5px 3px;
+  width: 38%;
+  height: 14%;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  margin: 7px 5px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .1);
   color: #fff;
@@ -336,8 +343,9 @@ body {
   transition:.3s;
 }
 
-#main02 .btn.touched {
+#main02 .btn.click {
   background: rgba(255, 255, 255, .4);
+  box-shadow:inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
 }
 
 #main02 .btn::before {
@@ -352,6 +360,11 @@ body {
   display: inline-block;
   vertical-align: middle;
   font-size: 1.5rem;
+  transition:.3s;
+}
+
+#main02 .btn.click span {
+  font-size: 1.4rem;
 }
 
 /* popup */

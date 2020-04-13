@@ -1,8 +1,13 @@
-//https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6
+/*
+ * demo site: https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6
+*/
+
 ~async function () {
-  // 凱比定位
+  // 載入 js 之後顯示所有元件
   const content = document.querySelector('.content');
   content.classList.remove('loading');
+
+  // 凱比機器人和中間的圓形 logo 定位
   const kebbi = document.getElementById('svgKebbi');
   const circle = document.querySelector('.circle');
   const ww = content.offsetWidth;
@@ -52,6 +57,7 @@
   };
 
   const urlOrigin = location.origin;
+  const urlPath = location.pathname;
   const urlHash = location.hash.replace('#', '');
   const config = {
     databaseURL: "https://webbit-remote.firebaseio.com/"
@@ -70,8 +76,9 @@
   saveBtn.addEventListener('click', async function () {
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
-    saveUrl.innerText = urlOrigin + '/#' + write.key;
-    window.history.pushState({}, 0, urlOrigin + '#' + write.key);
+    let url = `${urlOrigin}${urlPath}#${write.key}`;
+    saveUrl.innerText = url;
+    window.history.pushState({}, 0, url);
     document.getSelection().removeAllRanges();
   });
 
@@ -168,7 +175,7 @@
     await webduinoBroadcastor.connect();
   }
   // 發送 mqtt 訊號
-  const mqtt = async function (topic, msg) {
+  const mqttPush = async function (topic, msg) {
     if (topic == list.topic1) {
       webduinoBroadcastor.send({
         topic: topic,
@@ -199,7 +206,11 @@
   monsterBtn.forEach(e => {
     let self = e;
     self.addEventListener('click', () => {
-      mqtt(list.topic1, list[self.id]);
+      mqttPush(list.topic1, list[self.id]);
+      self.classList.add('click');
+      setTimeout(()=>{
+        self.classList.remove('click');
+      },100);
     });
   });
 
@@ -208,11 +219,13 @@
     let self = e;
     let msg = self.getAttribute('msg');
     self.addEventListener('click', () => {
-      mqtt(list.topic1, list[msg]);
+      mqttPush(list.topic1, list[msg]);
+      self.classList.add('click');
+      setTimeout(()=>{
+        self.classList.remove('click');
+      },100);
     });
   });
-
-
 
   let send = {
     center: false,
@@ -258,28 +271,28 @@
         if (kx < ww * 0.2) {
           if (!send.left) {
             sendCheck('left');
-            mqtt(list.topic1, list.kebbiLeft);
+            mqttPush(list.topic1, list.kebbiLeft);
           }
         } else if (kx > ww * 0.5) {
           if (!send.right) {
             sendCheck('right');
-            mqtt(list.topic1, list.kebbiRight);
+            mqttPush(list.topic1, list.kebbiRight);
           }
         } else {
           if (ky < wh * 0.2) {
             if (!send.top) {
               sendCheck('top');
-              mqtt(list.topic1, list.kebbiTop);
+              mqttPush(list.topic1, list.kebbiTop);
             }
           } else if (ky > wh * 0.4) {
             if (!send.bottom) {
               sendCheck('bottom');
-              mqtt(list.topic1, list.kebbiBottom);
+              mqttPush(list.topic1, list.kebbiBottom);
             }
           } else {
             if (!send.center) {
               sendCheck('center');
-              mqtt(list.topic1, list.kebbiReset);
+              mqttPush(list.topic1, list.kebbiReset);
             }
           }
         }
@@ -303,7 +316,7 @@
     function reset() {
       if (send.top || send.bottom || send.left || send.right) {
         console.log('reset');
-        mqtt(list.topic1, list.kebbiReset);
+        mqttPush(list.topic1, list.kebbiReset);
       }
       sendCheck();
       drag = false;
