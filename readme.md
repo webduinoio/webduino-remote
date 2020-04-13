@@ -85,9 +85,9 @@
 
 <br/>
 
-### 3. Webduino x Kebbi 串接
+### 3. Web:Bit x Kebbi 串接
 
-開啟 Webduino x Kebbi ( [http://kebbiiot.webduino.io/](http://kebbiiot.webduino.io/) )，使用擴充功能裡的「*網路廣播積木*」，即可進行串接。
+開啟 Web:Bit x Kebbi ( [http://kebbiiot.webduino.io/](http://kebbiiot.webduino.io/) )，使用擴充功能裡的「*網路廣播積木*」，即可進行串接。
 
 ![](media/tutorial-10.gif)
 
