@@ -2,9 +2,10 @@
 
 這是針對 Webduino 所設計的萬用遙控器，可以透過虛擬機器人搖桿或十顆按鈕發送網路廣播訊號，輕鬆串連物聯網的各種生活體驗。
 
-> 網址：[https://www.oxxostudio.tw/webduino-remote/](https://www.oxxostudio.tw/webduino-remote/)
+> 網址：[https://www.oxxostudio.tw/webduino-remote/](https://www.oxxostudio.tw/webduino-remote/) ( 建議使用手機的 Chrome 開啟 )
 
-> ( 建議使用手機的 Chrome 開啟 )
+<br/>
+<br/>
 
 ## 選單介紹
 
@@ -16,6 +17,9 @@
 
 ![](media/tutorial-02.gif)
 
+<br/>
+<br/>
+
 ## 操作說明
 
 ### 1. 虛擬機器人搖桿
@@ -26,11 +30,15 @@
 
 下方四個小怪獸可以作為按鈕使用，直接點擊就能發送對應訊號。
 
+<br/>
+
 ### 2. 十顆按鈕
 
 直接點擊按鈕就能發送對應訊號
 
 ![](media/tutorial-04.gif)
+
+<br/>
 
 ### 3. 廣播訊息設定
 
@@ -46,20 +54,28 @@
 
 ![](media/tutorial-07.gif)
 
+<br/>
+<br/>
 
-## Webduino 雲端平台串接
+# Webduino 服務串接
+
+### 1. Webduino 雲端平台串接
 
 登入 Webduino 雲端平台 ( [https://cloud.webduino.io](https://cloud.webduino.io) )，使用 Blockly 程式積木裡進階功能的「*MQTT 積木*」，即可進行串接。
 
 ![](media/tutorial-08.gif)
 
-## Web:Bit 教育版串接
+<br/>
+
+### 2. Web:Bit 教育版串接
 
 開啟 Web:Bit 教育版 ( [http://webbit.webduino.io/](http://webbit.webduino.io/) )，使用擴充功能裡的「*網路廣播積木*」，即可進行串接。
 
 ![](media/tutorial-09.gif)
 
-## Webduino x Kebbi 串接
+<br/>
+
+### 3. Webduino x Kebbi 串接
 
 開啟 Webduino x Kebbi ( [http://kebbiiot.webduino.io/](http://kebbiiot.webduino.io/) )，使用擴充功能裡的「*網路廣播積木*」，即可進行串接。
 
