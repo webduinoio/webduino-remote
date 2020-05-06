@@ -1,7 +1,3 @@
-/*
- * demo site: https://webbit.webduino.io/blockly/?demo=default#EqdrNJvwYzQy6
-*/
-
 ~async function () {
   // 載入 js 之後顯示所有元件
   const content = document.querySelector('.content');
@@ -208,9 +204,9 @@
     self.addEventListener('click', () => {
       mqttPush(list.topic1, list[self.id]);
       self.classList.add('click');
-      setTimeout(()=>{
+      setTimeout(() => {
         self.classList.remove('click');
-      },100);
+      }, 100);
     });
   });
 
@@ -221,9 +217,9 @@
     self.addEventListener('click', () => {
       mqttPush(list.topic1, list[msg]);
       self.classList.add('click');
-      setTimeout(()=>{
+      setTimeout(() => {
         self.classList.remove('click');
-      },100);
+      }, 100);
     });
   });
 
