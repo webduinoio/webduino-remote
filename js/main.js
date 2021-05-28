@@ -297,6 +297,7 @@
       }
     };
     const target = function (evt) {
+      evt.preventDefault();
       kebbi.classList.remove('reset');
       let touches = evt.changedTouches;
       if (touches) {
