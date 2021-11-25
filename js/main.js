@@ -225,6 +225,14 @@
     });
   });
 
+  const sendButton = document.querySelector('.input-group-button');
+  sendButton.addEventListener('click', () => {
+    sendButton.classList.add('click');
+    setTimeout(() => {
+      sendButton.classList.remove('click');
+    }, 100);
+  });
+
   let send = {
     center: false,
     top: false,
