@@ -1,4 +1,17 @@
 ~async function () {
+
+  function handleCustomButton() {
+    const sendButton = document.querySelector('.input-group-button');
+    const customMessage = document.getElementById('customMessage');
+    sendButton.addEventListener('click', () => {
+      mqttPush(list.topic1, customMessage.value);
+      sendButton.classList.add('click');
+      setTimeout(() => {
+        sendButton.classList.remove('click');
+      }, 100);
+    });
+  }
+
   // 載入 js 之後顯示所有元件
   const content = document.querySelector('.content');
   content.classList.remove('loading');
@@ -224,6 +237,8 @@
       }, 100);
     });
   });
+
+  handleCustomButton();
 
   let send = {
     center: false,
