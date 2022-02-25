@@ -329,6 +329,52 @@ body {
   pointer-events: none;
 }
 
+#main02 .input-group {
+  display: inline-flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 77%;
+  margin-bottom: 2rem;
+}
+
+#main02 .input-group-input {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 1%;
+  flex: 1 1 auto;
+  background: none;
+  color: #ddd;
+  margin: 0 auto;
+  padding: 10px 1rem;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#main02 .input-group-button {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  vertical-align: top;
+  transition:.3s;
+  padding: 10px 1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 0 0 0 3px;
+}
+
+#main02 .input-group-button.click {
+  background: rgba(255, 255, 255, .4);
+  box-shadow:inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
+}
+
 #main02 .btn {
   display: inline-block;
   width: 38%;
