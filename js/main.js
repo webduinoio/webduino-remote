@@ -182,11 +182,15 @@
   // 連接 mqtt server
   let webduinoBroadcastor;
   if (!webduinoBroadcastor) {
-    webduinoBroadcastor = new webduino.module.mqttClient();
-    await webduinoBroadcastor.connect();
+    webduinoBroadcastor = new window.mqttClient();
+    try {
+      await webduinoBroadcastor.connect();
+    } catch (err) {
+      console.error(err);
+    }
   }
   // 發送 mqtt 訊號
-  const mqttPush = async function (topic, msg) {
+  const mqttPush = function (topic, msg) {
     if (topic == list.topic1) {
       webduinoBroadcastor.send({
         topic: topic,
@@ -264,40 +268,52 @@
   drag();
   function drag() {
     let drag = false;
-    let mx, my, dx, dy;
-    const move = function (evt) {
+    let mx, my, dx, dy, carSize;
+
+    function move(evt) {
       let touches = evt.changedTouches;
       if (touches) {
         mx = ~~touches[0].pageX;
         my = ~~touches[0].pageY;
       } else {
-        mx = event.pageX;
-        my = event.pageY;
+        mx = evt.pageX;
+        my = evt.pageY;
       }
       if (drag) {
         kebbi.style.left = mx - dx + 'px';
         kebbi.style.top = my - dy + 'px';
       }
       if (kebbi.classList.contains('target')) {
-        let kx = kebbi.offsetLeft;
-        let ky = kebbi.offsetTop;
-        if (kx < ww * 0.2) {
+        const kx = kebbi.offsetLeft; // 車子 left
+        const ky = kebbi.offsetTop;  // 車子 top
+        const carSize = getCarSize();
+
+        // 注意，小車一開始的中心點 y 座標，不等於畫面的中心點 y 座標。
+        // 邊界在中心的周圍 1/3 小車寬/高的距離
+        const kxCenter = kx + carSize.width/2;  // 車子中心點 x 座標
+        const kyCenter = ky + carSize.height/2; // 車子中心點 y 座標
+        const leftSide = ww * 0.5 - carSize.width/3;  // 左邊界，小於這個值，判定車子移動到左邊
+        const rightSide = ww * 0.5 + carSize.width/3; // 右邊界，大於這個值，判定車子移動到右邊
+        const topSide = oy + carSize.height/6;        // 上邊界，小於這個值，判定車子移動到上面
+        const bottomSide = oy + 5 * carSize.height/6; // 下邊界，小於這個值，判定車子移動到下面
+
+        if (kxCenter < leftSide) {
           if (!send.left) {
             sendCheck('left');
             mqttPush(list.topic1, list.kebbiLeft);
           }
-        } else if (kx > ww * 0.5) {
+        } else if (kxCenter > rightSide) {
           if (!send.right) {
             sendCheck('right');
             mqttPush(list.topic1, list.kebbiRight);
           }
         } else {
-          if (ky < wh * 0.2) {
+          if (kyCenter < topSide) {
             if (!send.top) {
               sendCheck('top');
               mqttPush(list.topic1, list.kebbiTop);
             }
-          } else if (ky > wh * 0.4) {
+          } else if (kyCenter > bottomSide) {
             if (!send.bottom) {
               sendCheck('bottom');
               mqttPush(list.topic1, list.kebbiBottom);
@@ -310,8 +326,9 @@
           }
         }
       }
-    };
-    const target = function (evt) {
+    }
+
+    function target(evt) {
       evt.preventDefault();
       kebbi.classList.remove('reset');
       let touches = evt.changedTouches;
@@ -323,9 +340,9 @@
       dx = mx - kebbi.offsetLeft;
       dy = my - kebbi.offsetTop;
       kebbi.classList.add('target');
-    };
-    document.addEventListener('mousemove', move);
-    kebbi.addEventListener('touchmove', move);
+      updateCarSize();
+      sendCheck('center'); // 設定初始狀態為 center
+    }
 
     function reset() {
       if (send.top || send.bottom || send.left || send.right) {
@@ -340,10 +357,24 @@
       kebbi.style.top = `${oy}px`;
     }
 
-    document.addEventListener('mouseup', reset);
-    kebbi.addEventListener('touchend', reset);
+    function updateCarSize() {
+      const car = document.getElementById('svgKebbi');
+      carSize = {
+        width: car.offsetWidth,
+        height: car.offsetHeight,
+      };
+    }
 
+    function getCarSize() {
+      return carSize;
+    }
+
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', reset);
     kebbi.addEventListener('mousedown', target);
+
+    kebbi.addEventListener('touchmove', move);
+    kebbi.addEventListener('touchend', reset);
     kebbi.addEventListener('touchstart', target);
   }
 
