@@ -95,6 +95,3 @@
 
 ![](media/tutorial-10.gif)
 
-## 程式
-
-`mqttClient.js` 的內容，可參考票號 #5720。
