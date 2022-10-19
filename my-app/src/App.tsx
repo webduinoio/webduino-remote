@@ -1,7 +1,6 @@
 import React from 'react';
 import { ReactComponent as Circle } from './images/circle.svg'
 import './App.css';
-import Menu from './components/Menu/Menu';
 
 
 function App() {
