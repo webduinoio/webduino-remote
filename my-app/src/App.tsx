@@ -1,7 +1,5 @@
-import React from 'react';
-import { ReactComponent as Circle } from './images/circle.svg'
-import './App.css';
-
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
