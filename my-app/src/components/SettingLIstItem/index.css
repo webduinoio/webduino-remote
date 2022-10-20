@@ -1,0 +1,29 @@
+.SettingListItem {
+    display: flex;
+    margin:auto;
+    font-size: 1.2rem;
+    width: 80vw;
+    color: #ddd;
+    height: 53px;
+    text-align: center;
+}
+
+.SettingListItem-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(100, 200, 255, .3);
+    width: 50%;
+}
+
+.SettingListItem-input {
+    border: 3px solid #000;
+    text-align: center;
+    padding: 10px;
+    width: 50%;
+    transition: .3s;
+    font-size: 1.2rem;
+    outline: none;
+    background: none;
+    color: #ddd;
+}

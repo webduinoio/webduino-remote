@@ -1,0 +1,9 @@
+.Setting {
+    background: black;
+}
+
+.Setting-title {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #ddd;
+}
