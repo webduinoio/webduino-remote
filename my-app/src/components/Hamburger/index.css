@@ -1,0 +1,45 @@
+.Hamburger {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.Hamburger-line{
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    display: block;
+    margin: 6px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .Hamburger.is-active{
+    transform: rotate(45deg);
+  }
+  
+  .Hamburger.is-active:before{
+    border: 5px solid #ecf0f1;
+  }
+
+  .Hamburger.is-active .Hamburger-line{
+    width: 35px;
+  }
+  
+  .Hamburger.is-active .Hamburger-line:nth-child(2){
+    opacity: 0;
+  }
+  
+  .Hamburger.is-active .Hamburger-line:nth-child(1){
+    -webkit-transform: translateY(13px);
+    -ms-transform: translateY(13px);
+    -o-transform: translateY(13px);
+    transform: translateY(13px);
+  }
+  
+  .Hamburger.is-active .Hamburger-line:nth-child(3){
+    -webkit-transform: translateY(-13px) rotate(90deg);
+    -ms-transform: translateY(-13px) rotate(90deg);
+    -o-transform: translateY(-13px) rotate(90deg);
+    transform: translateY(-13px) rotate(90deg);
+  }
+  
