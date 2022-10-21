@@ -1,0 +1,12 @@
+.App {
+    
+}
+
+.App-Header {
+    display: flex;
+    padding: 20px;
+}
+
+.App-Content {
+    height: 80vh;
+}

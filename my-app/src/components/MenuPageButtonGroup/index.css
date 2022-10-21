@@ -1,0 +1,7 @@
+.MenuPageButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+}
+.MenuPageButtonGroup .MenuPageButton {
+    flex-grow: 1;
+}
