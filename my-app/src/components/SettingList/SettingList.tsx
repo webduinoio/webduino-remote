@@ -3,11 +3,11 @@ import SettingListItem from '../SettingLIstItem/SettingListItem'
 import './index.css'
 
 
-function SettingList({settingInfos}:any) {
+function SettingList({settingInfos,isButtonText}:any) {
   return (
     <ul className='SettingList'>
         {settingInfos.map((settingInfo:any)=>(
-            <SettingListItem settingInfo={settingInfo}/>
+            <SettingListItem settingInfo={settingInfo} isButtonText={isButtonText}/>
         ))}
     </ul>
   )

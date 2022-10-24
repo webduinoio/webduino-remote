@@ -39,15 +39,15 @@ function Setting() {
     <div className='Setting'>
       <div className="Setting-topic">
         <p className='Setting-title'>廣播頻道</p>
-        <SettingList settingInfos={settingTopic} />
+        <SettingList settingInfos={settingTopic} isButtonText={false}/>
       </div>
       <div className="Setting-monsterText">
         <p className='Setting-title'>怪獸廣播訊息</p>
-        <SettingList settingInfos={settingMonsterText} />
+        <SettingList settingInfos={settingMonsterText} isButtonText={false}/>
       </div>
       <div className="Setting-buttonText">
         <p className='Setting-title'>按鈕廣播訊息</p>
-        <SettingList settingInfos={settingButtonText} />
+        <SettingList settingInfos={settingButtonText} isButtonText={true}/>
       </div>
       <SettingLink setPopupIsShow={setPopupIsShow}/>
       {
