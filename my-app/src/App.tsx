@@ -12,9 +12,13 @@ function App() {
   return (
     <div className="App">
       <div className="App-Header">
-        <Hamburger  hamburgerIsShow={hamburgerIsShow} handleHamburgerClick={handleHamburgerClick}/>
+        <Hamburger hamburgerIsShow={hamburgerIsShow} handleHamburgerClick={handleHamburgerClick} />
       </div>
-      <Setting />
+      <div className='App-HamburgerSetting'>
+        {
+          hamburgerIsShow ? <Setting /> : <Setting />
+        }
+      </div>
     </div>
   );
 }

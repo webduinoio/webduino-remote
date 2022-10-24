@@ -7,7 +7,7 @@ interface Props {
 }
 function Hamburger({ hamburgerIsShow, handleHamburgerClick }: Props) {
   return (
-    <div className={"Hamburger "+{hamburgerIsShow?'isActive':'jij'}} onClick={()=>handleHamburgerClick}>
+    <div className={"Hamburger "+(hamburgerIsShow?'':'is-active')} onClick={()=>handleHamburgerClick()}>
       <span className="Hamburger-line"></span>
       <span className="Hamburger-line"></span>
       <span className="Hamburger-line"></span>
@@ -16,3 +16,4 @@ function Hamburger({ hamburgerIsShow, handleHamburgerClick }: Props) {
 }
 
 export default Hamburger
+
