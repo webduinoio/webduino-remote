@@ -16,7 +16,7 @@ function App() {
       </div>
       <div className='App-HamburgerSetting'>
         {
-          hamburgerIsShow ? <Setting /> : <Setting />
+          hamburgerIsShow ? "" : <Setting />
         }
       </div>
     </div>
