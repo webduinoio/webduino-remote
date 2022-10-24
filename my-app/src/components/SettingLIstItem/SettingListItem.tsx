@@ -1,11 +1,13 @@
 import React from 'react'
 import './index.css'
 
-function SettingListItem() {
+
+
+function SettingListItem({settingInfo}:any) {
   return (
     <li className='SettingListItem'>
-        <div className='SettingListItem-title'>aaa</div>
-        <input className='SettingListItem-input' />
+        <div className='SettingListItem-title'>{Object.keys(settingInfo)}</div>
+        <input className='SettingListItem-input' placeholder={settingInfo[Object.keys(settingInfo)[0]]}/>
     </li>
   )
 }

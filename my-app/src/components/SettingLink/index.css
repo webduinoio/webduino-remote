@@ -1,0 +1,11 @@
+.SettingLink {
+    width: max-content;
+    font-size: 1.2rem;
+    margin: 30px auto 10px;
+    padding: 10px 30px;
+    background: #e50;
+    border-radius: 20px;
+    text-shadow: #900 0 0 5px;
+    color: #ddd;
+
+}

@@ -1,0 +1,71 @@
+.SettingPopup {
+    position: fixed;
+    top: 17%;
+    pointer-events: auto;
+    left: 15%;
+    width: 70%;
+    height: max-content;
+    border: 3px solid #fff;
+    z-index: 34444;
+    border-radius: 20px;
+    padding: 30px 10px;
+    text-align: center;
+    background: rgba(50,100,150,.9);
+    color: #fff;
+    transition: .3s;
+}
+
+.SettingPopup-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: #123;
+    top: -18px;
+    right: -18px;
+}
+
+.SettingPopup-close::before{
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    transform-origin: 50% 50%;
+    background: #fff;
+    top: 45%;
+    left: 10%;
+    transform: rotate(45deg);
+}
+.SettingPopup-close::after{
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    transform-origin: 50% 50%;
+    background: #fff;
+    top: 45%;
+    left: 10%;
+    transform: rotate(-45deg);
+}
+
+.SettingPopup-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.SettingPopup-saveURL {
+    font-size: 1.1rem;
+    width: 100%;
+    word-wrap: break-word;
+    line-height: 1.5;
+} 
+
+.SettingPopup-copyBtn {
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    width: max-content;
+    margin: 20px auto 0;
+    background: #e50;
+    border-radius: 20px;
+}
