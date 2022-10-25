@@ -4,7 +4,7 @@ import { ReactComponent as Circle } from "./images/circle.svg";
 import { ReactComponent as AiCar1 } from "./images/aicar1.svg";
 import { ReactComponent as AiCar2 } from "./images/aicar2.svg";
 function App() {
-  const KebbiRef:any = useRef(null);
+  const KebbiRef: any = useRef(null);
   const [isKebbiClick, setIsKebbiClick] = useState(false);
   const [kebbiOriginPosition, setKebbiOriginPosition] = useState({
     left: 0,
@@ -15,23 +15,20 @@ function App() {
     top: 0,
   });
   const mousemoveHandler = (e: any) => {
-   if(isKebbiClick){
-     setKebbiPosition({ left: e.pageX-kebbiOriginPosition.left, top: e.pageY-kebbiOriginPosition.top });
-     console.log(e.pageX,KebbiRef.current.offsetLeft,e.pageX-KebbiRef.current.offsetLeft);
-
-   }
-            
+    if (isKebbiClick) {
+      setKebbiPosition({
+        left: e.pageX - kebbiOriginPosition.left,
+        top: e.pageY - kebbiOriginPosition.top,
+      });
+    }
   };
   const mouseupHandler = () => {
     setKebbiPosition({ left: 0, top: 0 });
     setIsKebbiClick(false);
-    
   };
-  const mousedownHandler = (e:any) => {
-    setKebbiOriginPosition({ left: e.pageX, top: e.pageY})
+  const mousedownHandler = (e: any) => {
+    setKebbiOriginPosition({ left: e.pageX, top: e.pageY });
     setIsKebbiClick(true);
-    console.log(e.pageX,e.pageY,kebbiPosition.left);
-    
   };
   return (
     <div className="App">
@@ -39,19 +36,23 @@ function App() {
       <div className="App-KebbiSection">
         <div
           className="App-ImageKebbiContainer"
-          ref = {KebbiRef}
-          onMouseDown={(e) => mousedownHandler(e)}  
+          ref={KebbiRef}
+          onMouseDown={(e) => mousedownHandler(e)}
           onMouseMove={(e) => mousemoveHandler(e)}
           onMouseUp={() => mouseupHandler()}
-          >
-          {isKebbiClick ? <AiCar2  className="App-ImageKebbiSelf" 
-           style={{ left: kebbiPosition.left, top: kebbiPosition.top }}/> : <AiCar1 className="App-ImageKebbiSelf"/>}
-         
+        >
+          {isKebbiClick ? (
+            <AiCar2
+              className="App-ImageKebbiSelf"
+              style={{ left: kebbiPosition.left, top: kebbiPosition.top }}
+            />
+          ) : (
+            <AiCar1 className="App-ImageKebbiSelf" />
+          )}
         </div>
         <div className="App-CircleSection">
           <Circle />
         </div>
-        <div>jijiji</div>
       </div>
     </div>
   );
