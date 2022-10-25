@@ -4,17 +4,19 @@
 .App-KebbiSection {
     position: relative;
     top:0;
-    margin-top: 8%;
+    height: auto;
+    margin-top:8%;
 }
 .App-ImageKebbiContainer {
     position: absolute;
     left:50% ;
-    top:50px ;
+    top:0px ;
     transform: translateX(-50%);
     z-index: 3;
-    width: 25%;
+    width: 32%;
     height: 0;
-    padding-bottom: 25%;
+    padding-bottom: 32%;
+    margin-top: 2.5%;
 }
 .App-ImageKebbiSelf {
     position: absolute;
@@ -24,8 +26,8 @@
     height: 100%;
 }
 .App-CircleSection {
-    width: 30%;
-    padding-bottom: 30%;
+    width: 37%;
+    padding-bottom: 37%;
     top:0;
     left:50%;
     transform: translateX(-50%);

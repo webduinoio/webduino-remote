@@ -20,6 +20,7 @@ function App() {
         left: e.pageX - kebbiOriginPosition.left,
         top: e.pageY - kebbiOriginPosition.top,
       });
+
     }
   };
   const mouseupHandler = () => {
