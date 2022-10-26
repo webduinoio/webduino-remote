@@ -30,7 +30,7 @@ function MonsterButton({ monsterColor }: Props) {
   return (
     <div
       className={"MonsterButton " + (monsterClick ? "MonsterButton-click" : "")}
-      onClick={() => handleMonsterClick()}
+      onClick={handleMonsterClick}
     >
       {renderMonster(monsterColor)}
     </div>
