@@ -4,8 +4,8 @@ import { ReactComponent as Circle } from "./images/circle.svg";
 import { ReactComponent as AiCar1 } from "./images/aicar1.svg";
 import { ReactComponent as AiCar2 } from "./images/aicar2.svg";
 function App() {
-  const KebbiRef: any = useRef(null);
-  const [isKebbiClick, setIsKebbiClick] = useState(false);
+  const KebbiRef= useRef(null);
+  const [inDragging, setInDragging] = useState(false);
   const [kebbiOriginPosition, setKebbiOriginPosition] = useState({
     left: 0,
     top: 0,
@@ -14,8 +14,8 @@ function App() {
     left: 0,
     top: 0,
   });
-  const mousemoveHandler = (e: any) => {
-    if (isKebbiClick) {
+  const mousemoveHandler = (e: React.MouseEvent) => {
+    if (inDragging) {
       setKebbiPosition({
         left: e.pageX - kebbiOriginPosition.left,
         top: e.pageY - kebbiOriginPosition.top,
@@ -25,11 +25,11 @@ function App() {
   };
   const mouseupHandler = () => {
     setKebbiPosition({ left: 0, top: 0 });
-    setIsKebbiClick(false);
+    setInDragging(false);
   };
   const mousedownHandler = (e: any) => {
     setKebbiOriginPosition({ left: e.pageX, top: e.pageY });
-    setIsKebbiClick(true);
+    setInDragging(true);
   };
   return (
     <div className="App">
@@ -42,7 +42,7 @@ function App() {
           onMouseMove={(e) => mousemoveHandler(e)}
           onMouseUp={() => mouseupHandler()}
         >
-          {isKebbiClick ? (
+          {inDragging ? (
             <AiCar2
               className="App-ImageKebbiSelf"
               style={{ left: kebbiPosition.left, top: kebbiPosition.top }}
