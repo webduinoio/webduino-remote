@@ -18,16 +18,16 @@
     cursor: pointer;
   }
   
-  .Hamburger.is-active .Hamburger-line:nth-child(2){
+  .Hamburger.active .Hamburger-line:nth-child(2){
     transform: rotate(405deg);
     opacity: 0;
   }
   
-  .Hamburger.is-active .Hamburger-line:nth-child(1){
+  .Hamburger.active .Hamburger-line:nth-child(1){
     transform: translateY(8.5px) rotate(405deg);
   }
   
-  .Hamburger.is-active .Hamburger-line:nth-child(3){
+  .Hamburger.active .Hamburger-line:nth-child(3){
     transform: translateY(-8.5px) rotate(135deg);
   }
   

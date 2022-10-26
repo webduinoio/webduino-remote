@@ -1,19 +1,21 @@
-import React from 'react'
-import './index.css'
+import React from "react";
+import "./index.css";
 
 interface Props {
-  hamburgerIsShow: boolean,
-  handleHamburgerClick: () => void
+  hamburgerShow: boolean;
+  onClick: () => void;
 }
-function Hamburger({ hamburgerIsShow, handleHamburgerClick }: Props) {
+function Hamburger({ hamburgerShow, onClick }: Props) {
   return (
-    <div className={"Hamburger "+(hamburgerIsShow?'':'is-active')} onClick={()=>handleHamburgerClick()}>
+    <div
+      className={"Hamburger " + (hamburgerShow ? "" : "active")}
+      onClick={onClick}
+    >
       <span className="Hamburger-line"></span>
       <span className="Hamburger-line"></span>
       <span className="Hamburger-line"></span>
     </div>
-  )
+  );
 }
 
-export default Hamburger
-
+export default Hamburger;
