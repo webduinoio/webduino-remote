@@ -6,16 +6,16 @@ interface Props {
 }
 
 function MenuPageButton({ name }: Props) {
-  const [clicked, setClicked] = useState(false);
+  const [open, setOpen] = useState(false);
   const buttonAnim = () => {
-    setClicked(!clicked);
+    setOpen(!open);
     setTimeout(() => {
-      setClicked(false);
+      setOpen(false);
     }, 100);
   };
   return (
     <div
-      className={"MenuPageButton " + (clicked ? "MenuPageButton-click" : "")}
+      className={"MenuPageButton " + (open ? "MenuPageButton-click" : "")}
       onClick={() => buttonAnim()}
     >
       <p className="MenuPageButton-text">按鈕 {name}</p>

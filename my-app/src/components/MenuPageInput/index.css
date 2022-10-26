@@ -10,8 +10,6 @@
 .MenuPageInput-input {
     display: block;
     font-size: 1.5rem;
-    line-height: 1;
-    width: 1%;
     flex: 1 1 auto;
     background: none;
     color: #ddd;

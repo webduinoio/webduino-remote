@@ -10,11 +10,11 @@ interface Props {
 
 function Menu({ menuIsShow, handleOnClick }: Props) {
   return (
-    <div className="Menu" onClick={() => handleOnClick()}>
+    <div className="Menu" onClick={handleOnClick}>
       {menuIsShow ? (
-        <ImageMenu height={30} width={30} />
+        <ImageMenu height="30" width="30" />
       ) : (
-        <ImageMenuBack height={30} width={30} />
+        <ImageMenuBack height="30" width="30" />
       )}
     </div>
   );

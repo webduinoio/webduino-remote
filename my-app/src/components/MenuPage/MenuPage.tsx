@@ -5,7 +5,7 @@ import "./index.css";
 
 function MenuPage() {
   return (
-    <div className={"MenuPage"}>
+    <div className="MenuPage">
       <MenuPageInput />
       <MenuPageButtonGroup />
     </div>
