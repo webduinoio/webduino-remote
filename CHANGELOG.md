@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2022.2.25
+
+### Added
+
+- 實作萬用遙控器 i18n [5775](https://redmine.kingkit.codes/issues/5775)
 
 ## 2022.2.25
 
