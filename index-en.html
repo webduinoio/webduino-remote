@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-Tw">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <meta name="author" content="webduino" />
-    <meta name="copyright" content="webduino" />
-    <title>Webduino 萬用遙控器</title>
+    <meta name="author" content="oxxo.studio" />
+    <meta name="copyright" content="oxxo.studio" />
+    <title>Webduino Remote Control</title>
 
     <meta
       name="description"
-      content="Webduino 萬用遙控器，受到老師學生們喜愛，能夠透過搖桿和多顆按鈕發送網路廣播訊號，輕鬆遙控自走車、操控物聯網設備！"
+      content="這是針對 Webduino 所設計的萬用遙控器，可以透過虛擬機器人搖桿或十顆按鈕發送網路廣播訊號，輕鬆串連物聯網的各種生活體驗。"
     />
     <meta
       itemprop="description"
-      content="Webduino 萬用遙控器，受到老師學生們喜愛，能夠透過搖桿和多顆按鈕發送網路廣播訊號，輕鬆遙控自走車、操控物聯網設備！"
+      content="這是針對 Webduino 所設計的萬用遙控器，可以透過虛擬機器人搖桿或十顆按鈕發送網路廣播訊號，輕鬆串連物聯網的各種生活體驗。"
     />
-    <meta itemprop="image" content="" />
+    <meta
+      itemprop="image"
+      content="https://www.oxxostudio.tw/webduino-remote/media/snapshot.jpg"
+    />
     <meta
       property="og:description"
-      content="Webduino 萬用遙控器，受到老師學生們喜愛，能夠透過搖桿和多顆按鈕發送網路廣播訊號，輕鬆遙控自走車、操控物聯網設備！"
+      content="這是針對 Webduino 所設計的萬用遙控器，可以透過虛擬機器人搖桿或十顆按鈕發送網路廣播訊號，輕鬆串連物聯網的各種生活體驗。"
     />
     <meta property="og:title" content="Webduino 遙控器" />
-    <meta property="og:url" content="https://webduino.io" />
-    <meta property="og:image" content="" />
-    <link rel="icon" href="webduino.ico" type="image/x-icon" />
-    <link rel="canonical" href="https://webduino.io/" />
+    <meta
+      property="og:url"
+      content="https://www.oxxostudio.tw/webduino-remote/index.html"
+    />
+    <meta
+      property="og:image"
+      content="https://www.oxxostudio.tw/webduino-remote/media/snapshot.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://www.oxxostudio.tw/webduino-remote/index.html"
+    />
 
     <link rel="stylesheet" href="css/main.css" />
   </head>
@@ -716,7 +727,7 @@
             id="customMessage"
             placeholder="輸入文字"
           />
-          <button class="input-group-button">傳送</button>
+          <button class="input-group-button">Send</button>
         </div>
         <div id="btn0n" msg="btn0" class="btn"></div>
         <div id="btn1n" msg="btn1" class="btn"></div>
@@ -731,116 +742,134 @@
       </div>
       <div id="setting" class="panel">
         <div class="msg-div topic">
-          <h3>廣播頻道</h3>
+          <h3>Broadcast Channel</h3>
           <table>
             <tr>
-              <th>發送</th>
+              <th>Send</th>
               <td><input m="topic1" /></td>
             </tr>
             <tr>
-              <th>接收</th>
+              <th>Receive</th>
               <td><input m="topic2" /></td>
             </tr>
           </table>
         </div>
         <div class="msg-div monster">
-          <h3>怪獸廣播訊息</h3>
+          <h3>Monster Broadcast Message</h3>
           <table>
             <tr>
-              <th>小車中間</th>
+              <th>Middle</th>
               <td><input m="kebbiReset" /></td>
             </tr>
             <tr>
-              <th>小車往上</th>
+              <th>Up</th>
               <td><input m="kebbiTop" /></td>
             </tr>
             <tr>
-              <th>小車往下</th>
+              <th>Down</th>
               <td><input m="kebbiBottom" /></td>
             </tr>
             <tr>
-              <th>小車往左</th>
+              <th>Left</th>
               <td><input m="kebbiLeft" /></td>
             </tr>
             <tr>
-              <th>小車往右</th>
+              <th>Right</th>
               <td><input m="kebbiRight" /></td>
             </tr>
             <tr>
-              <th>綠色怪獸</th>
+              <th>Green</th>
               <td><input m="svgGreen" /></td>
             </tr>
             <tr>
-              <th>紅色怪獸</th>
+              <th>Red</th>
               <td><input m="svgRed" /></td>
             </tr>
             <tr>
-              <th>黃色怪獸</th>
+              <th>Yellow</th>
               <td><input m="svgYellow" /></td>
             </tr>
             <tr>
-              <th>藍色怪獸</th>
+              <th>Blue</th>
               <td><input m="svgBlue" /></td>
             </tr>
           </table>
         </div>
         <div class="msg-div">
-          <h3>按鈕廣播訊息</h3>
+          <h3>Button Broadcast Message</h3>
           <table>
             <tr>
-              <th><input class="btn-name" m="btn0n" placeholder="按鈕 1" /></th>
+              <th>
+                <input class="btn-name" m="btn0n" placeholder="Button 1" />
+              </th>
               <td><input class="btn-msg" m="btn0" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn1n" placeholder="按鈕 2" /></th>
+              <th>
+                <input class="btn-name" m="btn1n" placeholder="Button 2" />
+              </th>
               <td><input class="btn-msg" m="btn1" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn2n" placeholder="按鈕 3" /></th>
+              <th>
+                <input class="btn-name" m="btn2n" placeholder="Button 3" />
+              </th>
               <td><input class="btn-msg" m="btn2" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn3n" placeholder="按鈕 4" /></th>
+              <th>
+                <input class="btn-name" m="btn3n" placeholder="Button 4" />
+              </th>
               <td><input class="btn-msg" m="btn3" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn4n" placeholder="按鈕 5" /></th>
+              <th>
+                <input class="btn-name" m="btn4n" placeholder="Button 5" />
+              </th>
               <td><input class="btn-msg" m="btn4" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn5n" placeholder="按鈕 6" /></th>
+              <th>
+                <input class="btn-name" m="btn5n" placeholder="Button 6" />
+              </th>
               <td><input class="btn-msg" m="btn5" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn6n" placeholder="按鈕 7" /></th>
+              <th>
+                <input class="btn-name" m="btn6n" placeholder="Button 7" />
+              </th>
               <td><input class="btn-msg" m="btn6" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn7n" placeholder="按鈕 8" /></th>
+              <th>
+                <input class="btn-name" m="btn7n" placeholder="Button 8" />
+              </th>
               <td><input class="btn-msg" m="btn7" /></td>
             </tr>
             <tr>
-              <th><input class="btn-name" m="btn8n" placeholder="按鈕 9" /></th>
+              <th>
+                <input class="btn-name" m="btn8n" placeholder="Button 9" />
+              </th>
               <td><input class="btn-msg" m="btn8" /></td>
             </tr>
             <tr>
               <th>
-                <input class="btn-name" m="btn9n" placeholder="按鈕 10" />
+                <input class="btn-name" m="btn9n" placeholder="Button 10" />
               </th>
               <td><input class="btn-msg" m="btn9" /></td>
             </tr>
           </table>
         </div>
-        <div id="saveBtn">儲存分享連結</div>
+        <div id="saveBtn">Save Shared Link</div>
       </div>
       <div id="message">
         <h4>1234567</h4>
       </div>
       <div id="popup">
         <div id="popupClose"></div>
-        <h4>儲存成功</h4>
+        <h4>Saved Successfully</h4>
         <div id="saveUrl"></div>
-        <div id="copy" data-clipboard-target="#saveUrl">複製連結</div>
+        <div id="copy" data-clipboard-target="#saveUrl">Share Link</div>
       </div>
     </div>
 
@@ -848,7 +877,7 @@
     <script src="js/mqttClient.min.js"></script>
     <script src="js/clipboard.min.js "></script>
     <script src="js/firebase.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main-en.js"></script>
 
     <script
       async
