@@ -8,11 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- 實作萬用遙控器 i18n [5775](https://redmine.kingkit.codes/issues/5775)
+- 實作萬用遙控器 i18n 
 
 ### Changed
 
-- meta 修改 [1340](https://redmine.kingkit.codes/issues/1340)
+- meta 修改 
 
 ## 2022.2.25
 
