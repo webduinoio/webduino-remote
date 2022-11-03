@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## 2022.11.1
 
+### Fixed
+
+- 平板開啟萬用遙控器時，訊息傳送輸入框消失
+
 ### Added
 
 - 實作萬用遙控器 i18n 
