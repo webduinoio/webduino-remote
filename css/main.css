@@ -53,8 +53,8 @@ body {
   overflow: hidden;
 }
 
-.content.loading * {
-  opacity: 0;
+.content.loading *{
+  opacity:0;
 }
 
 .panel {
@@ -63,7 +63,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  transition: .3s;
+  transition:.3s;
 }
 
 /* setting */
@@ -153,13 +153,13 @@ body {
   background: rgba(100, 200, 255, .3);
 }
 
-#setting #saveBtn {
+#setting #saveBtn{
   width: max-content;
-  font-size: 1.2rem;
-  margin: 30px auto 10px;
-  padding: 10px 30px;
-  background: #e50;
-  border-radius: 20px;
+  font-size:1.2rem;
+  margin:30px auto 10px;
+  padding:10px 30px;
+  background:#e50;
+  border-radius:20px;
   text-shadow: #900 0 0 5px;
 }
 
@@ -306,14 +306,12 @@ body {
   z-index: 2;
   vertical-align: middle;
 }
-
-#main01 footer .monster-btn svg {
-  transition: .3s;
-  background: none;
+#main01 footer .monster-btn svg{
+  transition:.3s;
+  background:none;
 }
-
-#main01 footer .monster-btn.click svg {
-  width: 90%;
+#main01 footer .monster-btn.click svg{
+  width:90%;
 }
 
 /* main02 */
@@ -350,7 +348,7 @@ body {
   color: #ddd;
   margin: 0 auto;
   padding: 10px 1rem;
-  box-shadow: inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
   border-radius: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -360,12 +358,12 @@ body {
   display: inline-block;
   font-size: 1.5rem;
   line-height: 1;
-  box-shadow: inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .1);
   color: #fff;
   vertical-align: top;
-  transition: .3s;
+  transition:.3s;
   padding: 10px 1rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -374,26 +372,26 @@ body {
 
 #main02 .input-group-button.click {
   background: rgba(255, 255, 255, .4);
-  box-shadow: inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
+  box-shadow:inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
 }
 
 #main02 .btn {
   display: inline-block;
   width: 38%;
   height: 14%;
-  box-shadow: inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
+  box-shadow:inset #ccc 0 0 0 0, #ccc 0 0 0 3px;
   margin: 7px 5px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .1);
   color: #fff;
   vertical-align: top;
   -webkit-user-select: none;
-  transition: .3s;
+  transition:.3s;
 }
 
 #main02 .btn.click {
   background: rgba(255, 255, 255, .4);
-  box-shadow: inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
+  box-shadow:inset #ccc 0 0 0 3px, #ccc 0 0 0 0;
 }
 
 #main02 .btn::before {
@@ -408,7 +406,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   font-size: 1.5rem;
-  transition: .3s;
+  transition:.3s;
 }
 
 #main02 .btn.click span {
@@ -416,139 +414,114 @@ body {
 }
 
 /* popup */
-#popup {
-  top: 20%;
-  left: 15%;
-  width: 70%;
-  height: max-content;
-  border: 3px solid #fff;
-  z-index: 20;
-  border-radius: 20px;
-  padding: 30px 10px;
-  text-align: center;
-  background: rgba(50, 100, 150, .9);
-  color: #fff;
-  opacity: 0;
+#popup{
+  top:20%;
+  left:15%;
+  width:70%;
+  height:max-content;
+  border:3px solid #fff;
+  z-index:20;
+  border-radius:20px;
+  padding:30px 10px;
+  text-align:center;
+  background:rgba(50,100,150,.9);
+  color:#fff;
+  opacity:0;
   pointer-events: none;
-  transition: .3s;
+  transition:.3s;
 }
-
-#popup.show {
-  top: 17%;
-  opacity: 1;
+#popup.show{
+  top:17%;
+  opacity:1;
   pointer-events: auto;
 }
-
-#popup h4 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+#popup h4{
+  font-size:1.1rem;
+  margin-bottom:10px;
 }
-
-#saveUrl {
-  font-size: 1.1rem;
-  width: 100%;
-  word-wrap: break-word;
+#saveUrl{
+  font-size:1.1rem;
+  width:100%;
+  word-wrap:break-word;
   line-height: 1.5;
 }
-
-#saveUrl::selection {
-  color: #fff;
-  background: none;
+#saveUrl::selection{
+  color:#fff;
+  background:none;
 }
-
-#copy {
-  font-size: 1.1rem;
-  padding: 10px 30px;
-  width: max-content;
-  margin: 20px auto 0;
-  background: #e50;
-  border-radius: 20px;
+#copy{
+  font-size:1.1rem;
+  padding:10px 30px;
+  width:max-content;
+  margin:20px auto 0;
+  background:#e50;
+  border-radius:20px;
 }
-
-#copy.copied {
+#copy.copied{
   pointer-events: none;
-  opacity: .7;
+  opacity:.7;
 }
-
-#popupClose {
-  position: absolute;
-  width: 40px;
-  height: 40px;
+#popupClose{
+  position:absolute;
+  width:40px;
+  height:40px;
   border-radius: 50%;
-  border: 3px solid #fff;
-  background: #123;
-  top: -18px;
-  right: -18px;
+  border:3px solid #fff;
+  background:#123;
+  top:-18px;
+  right:-18px;
 }
-
 #popupClose::before,
-#popupClose::after {
-  content: "";
-  position: absolute;
-  width: 80%;
-  height: 10%;
+#popupClose::after{
+  content:"";
+  position:absolute;
+  width:80%;
+  height:10%;
   transform-origin: 50% 50%;
-  background: #fff;
-  top: 45%;
-  left: 10%;
+  background:#fff;
+  top:45%;
+  left:10%;
 }
-
-#popupClose::before {
-  transform: rotate(45deg);
+#popupClose::before{
+  transform:rotate(45deg);
 }
-
-#popupClose::after {
-  transform: rotate(-45deg);
+#popupClose::after{
+  transform:rotate(-45deg);
 }
 
 /* message */
 
-#message {
-  width: 60%;
-  top: -10px;
-  left: 20%;
-  height: max-content;
-  background: rgba(255, 255, 255, .2);
-  border: 1px dashed #fff;
-  border-radius: 20px;
+#message{
+  width:60%;
+  top:-10px;
+  left:20%;
+  height:max-content;
+  background:rgba(255,255,255,.2);
+  border:1px dashed #fff;
+  border-radius:20px;
   padding: 0 10px;
-  opacity: 0;
-  transition: .3s;
+  opacity:0;
+  transition:.3s;
   pointer-events: none;
 }
-
-#message.show {
-  opacity: 1;
-  top: 15px;
+#message.show{
+  opacity:1;
+  top:15px;
 }
 
-#message h4 {
-  color: #fff;
-  font-size: 1.2rem;
-  text-align: center;
-  line-height: 1.8;
+#message h4{
+  color:#fff;
+  font-size:1.2rem;
+  text-align:center;
+  line-height:1.8;
 }
 
 .noselect {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
-}
-
-input {
-  -webkit-appearance: none;
-  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
-  -moz-appearance: none;
-  /* FireFox */
-  appearance: none;
 }

@@ -167,7 +167,7 @@
     let m = self.getAttribute('m');
     self.value = list[m];
     self.addEventListener('input', () => {
-      window.history.pushState({}, 0, `${urlOrigin}${urlPath}`);
+      window.history.pushState({}, 0, urlOrigin);
       list[m] = self.value;
       if (btnObj[m]) {
         btnObj[m].innerHTML = `<span>${self.value}</span>`;
