@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## 2022.11.1
 
+### Fixed
+
+- 平板或手機旋轉後，刷新萬用遙控器
+
 ### Added
 
-- 實作萬用遙控器 i18n 
+- 實作萬用遙控器 i18n
 
 ### Changed
 
