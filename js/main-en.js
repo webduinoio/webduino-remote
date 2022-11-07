@@ -167,7 +167,7 @@
     let m = self.getAttribute('m');
     self.value = list[m];
     self.addEventListener('input', () => {
-      window.history.pushState({}, 0, urlOrigin);
+      window.history.pushState({}, 0, `${urlOrigin}${urlPath}`);
       list[m] = self.value;
       if (btnObj[m]) {
         btnObj[m].innerHTML = `<span>${self.value}</span>`;
@@ -377,5 +377,24 @@
     kebbi.addEventListener('touchend', reset);
     kebbi.addEventListener('touchstart', target);
   }
+
+  // 處理中間圖片跟隨視窗大小移動位置
+  function screenRotate() {
+    const kebbi = document.getElementById('svgKebbi');
+    const circle = document.querySelector('.circle');
+    const ww = content.offsetWidth;
+    const wh = content.offsetHeight;
+    const ox = (ww - kebbi.offsetWidth) / 2;
+    const oy = (wh * 0.8 - kebbi.offsetHeight) / 2;
+    kebbi.style.left = `${ox}px`;
+    kebbi.style.top = `${oy}px`;
+    circle.style.width = `${ww * 0.4}px`;
+    circle.style.height = `${ww * 0.4}px`;
+    circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
+    circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
+  }
+
+  window.addEventListener('resize', screenRotate);
+  screenRotate();
 
 }();
