@@ -379,15 +379,8 @@
   }
 
    // 處理中間圖片跟隨視窗大小移動位置
-  window.onresize = function () {
-    watchChangeSize();
-  }
-
-  function watchChangeSize() {
-    const offsetWidth = document.documentElement.clientWidth;
-    if (offsetWidth) {
-      location.reload();
-    }
-  }
+  window.addEventListener('resize', () => {
+    document.documentElement.clientWidth = location.reload();
+  });
 
 }();
