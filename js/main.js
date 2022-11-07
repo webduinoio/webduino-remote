@@ -84,7 +84,7 @@
   });
   saveBtn.addEventListener('click', async function () {
     let t = new Date();
-    list.time = `${t.getFullYear()}/${t.getMonth()*1+1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
+    list.time = `${t.getFullYear()}/${t.getMonth() * 1 + 1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
     let url = `${urlOrigin}${urlPath}#${write.key}`;
@@ -290,12 +290,12 @@
 
         // 注意，小車一開始的中心點 y 座標，不等於畫面的中心點 y 座標。
         // 邊界在中心的周圍 1/3 小車寬/高的距離
-        const kxCenter = kx + carSize.width/2;  // 車子中心點 x 座標
-        const kyCenter = ky + carSize.height/2; // 車子中心點 y 座標
-        const leftSide = ww * 0.5 - carSize.width/3;  // 左邊界，小於這個值，判定車子移動到左邊
-        const rightSide = ww * 0.5 + carSize.width/3; // 右邊界，大於這個值，判定車子移動到右邊
-        const topSide = oy + carSize.height/6;        // 上邊界，小於這個值，判定車子移動到上面
-        const bottomSide = oy + 5 * carSize.height/6; // 下邊界，小於這個值，判定車子移動到下面
+        const kxCenter = kx + carSize.width / 2;  // 車子中心點 x 座標
+        const kyCenter = ky + carSize.height / 2; // 車子中心點 y 座標
+        const leftSide = ww * 0.5 - carSize.width / 3;  // 左邊界，小於這個值，判定車子移動到左邊
+        const rightSide = ww * 0.5 + carSize.width / 3; // 右邊界，大於這個值，判定車子移動到右邊
+        const topSide = oy + carSize.height / 6;        // 上邊界，小於這個值，判定車子移動到上面
+        const bottomSide = oy + 5 * carSize.height / 6; // 下邊界，小於這個值，判定車子移動到下面
 
         if (kxCenter < leftSide) {
           if (!send.left) {
@@ -378,23 +378,16 @@
     kebbi.addEventListener('touchstart', target);
   }
 
-   // 處理中間圖片跟隨視窗大小移動位置
-   function screenRotate() {
-    const kebbi = document.getElementById('svgKebbi');
-    const circle = document.querySelector('.circle');
-    const ww = content.offsetWidth;
-    const wh = content.offsetHeight;
-    const ox = (ww - kebbi.offsetWidth) / 2;
-    const oy = (wh * 0.8 - kebbi.offsetHeight) / 2;
-    kebbi.style.left = `${ox}px`;
-    kebbi.style.top = `${oy}px`;
-    circle.style.width = `${ww * 0.4}px`;
-    circle.style.height = `${ww * 0.4}px`;
-    circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
-    circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
+  // 處理中間圖片跟隨視窗大小移動位置
+  window.onresize = function () {
+    watchChangeSize();
   }
 
-  window.addEventListener('resize', screenRotate);
-  screenRotate();
+  function watchChangeSize() {
+    const offsetWidth = document.documentElement.clientWidth;
+    if (offsetWidth) {
+      location.reload();
+    }
+  }
 
 }();
