@@ -44,25 +44,25 @@
     svgYellow: 'y',
     svgBlue: 'b',
     btn0: '1',
-    btn0n: '按鈕 1',
+    btn0n: 'Button 1',
     btn1: '2',
-    btn1n: '按鈕 2',
+    btn1n: 'Button 2',
     btn2: '3',
-    btn2n: '按鈕 3',
+    btn2n: 'Button 3',
     btn3: '4',
-    btn3n: '按鈕 4',
+    btn3n: 'Button 4',
     btn4: '5',
-    btn4n: '按鈕 5',
+    btn4n: 'Button 5',
     btn5: '6',
-    btn5n: '按鈕 6',
+    btn5n: 'Button 6',
     btn6: '7',
-    btn6n: '按鈕 7',
+    btn6n: 'Button 7',
     btn7: '8',
-    btn7n: '按鈕 8',
+    btn7n: 'Button 8',
     btn8: '9',
-    btn8n: '按鈕 9',
+    btn8n: 'Button 9',
     btn9: '10',
-    btn9n: '按鈕 10'
+    btn9n: 'Button 10'
   };
 
   const urlOrigin = location.origin;
@@ -97,10 +97,10 @@
   const copy = document.getElementById('copy');
   new ClipboardJS('#copy');
   copy.addEventListener('click', () => {
-    copy.innerText = '複製成功';
+    copy.innerText = 'Copy Successfully!';
     copy.classList.add('copied');
     setTimeout(() => {
-      copy.innerText = '複製連結';
+      copy.innerText = 'Copy link';
       copy.classList.remove('copied');
     }, 1000);
   });
