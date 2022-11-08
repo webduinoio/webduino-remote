@@ -84,7 +84,7 @@
   });
   saveBtn.addEventListener('click', async function () {
     let t = new Date();
-    list.time = `${t.getFullYear()}/${t.getMonth()*1+1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
+    list.time = `${t.getFullYear()}/${t.getMonth() * 1 + 1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
     let url = `${urlOrigin}${urlPath}#${write.key}`;
@@ -290,12 +290,12 @@
 
         // 注意，小車一開始的中心點 y 座標，不等於畫面的中心點 y 座標。
         // 邊界在中心的周圍 1/3 小車寬/高的距離
-        const kxCenter = kx + carSize.width/2;  // 車子中心點 x 座標
-        const kyCenter = ky + carSize.height/2; // 車子中心點 y 座標
-        const leftSide = ww * 0.5 - carSize.width/3;  // 左邊界，小於這個值，判定車子移動到左邊
-        const rightSide = ww * 0.5 + carSize.width/3; // 右邊界，大於這個值，判定車子移動到右邊
-        const topSide = oy + carSize.height/6;        // 上邊界，小於這個值，判定車子移動到上面
-        const bottomSide = oy + 5 * carSize.height/6; // 下邊界，小於這個值，判定車子移動到下面
+        const kxCenter = kx + carSize.width / 2;  // 車子中心點 x 座標
+        const kyCenter = ky + carSize.height / 2; // 車子中心點 y 座標
+        const leftSide = ww * 0.5 - carSize.width / 3;  // 左邊界，小於這個值，判定車子移動到左邊
+        const rightSide = ww * 0.5 + carSize.width / 3; // 右邊界，大於這個值，判定車子移動到右邊
+        const topSide = oy + carSize.height / 6;        // 上邊界，小於這個值，判定車子移動到上面
+        const bottomSide = oy + 5 * carSize.height / 6; // 下邊界，小於這個值，判定車子移動到下面
 
         if (kxCenter < leftSide) {
           if (!send.left) {
@@ -378,9 +378,9 @@
     kebbi.addEventListener('touchstart', target);
   }
 
-   // 處理中間圖片跟隨視窗大小移動位置
+  // 處理中間圖片跟隨視窗大小移動位置
   window.addEventListener('resize', () => {
-    document.documentElement.clientWidth = location.reload();
+    location.reload();
   });
 
 }();

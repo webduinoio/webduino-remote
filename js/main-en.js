@@ -380,7 +380,7 @@
 
   // 處理中間圖片跟隨視窗大小移動位置
   window.addEventListener('resize', () => {
-    document.documentElement.clientWidth = location.reload();
+    location.reload();
   });
 
 }();
