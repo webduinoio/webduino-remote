@@ -381,7 +381,7 @@
   // 處理中間圖片跟隨視窗大小移動位置
   window.addEventListener('resize', () => {
     kebbi.style.left = `${(window.innerWidth - kebbi.offsetWidth) / 2}px`
-    kebbi.style.top = `${(window.innerHeight - kebbi.offsetHeight - document.getElementById('monster').offsetHeight) / 2}px`
+    kebbi.style.top = `${(window.innerHeight - kebbi.offsetHeight - document.getElementById('monsterBlock').offsetHeight) / 2}px`
     circle.style.left = `${(window.innerWidth - circle.offsetWidth) / 2}px`;
     circle.style.top = `${(content.offsetHeight * 0.8 - circle.offsetHeight) / 2}px`;
   });
