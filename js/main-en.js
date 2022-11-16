@@ -20,14 +20,14 @@
   const kebbi = document.getElementById('svgKebbi');
   const circle = document.querySelector('.circle');
   function imgPosition() {
-  const ww = content.offsetWidth;
-  const wh = content.offsetHeight;
-  kebbi.style.left = `${(ww - kebbi.offsetWidth) / 2}px`;
-  kebbi.style.top = `${(wh * 0.8 - kebbi.offsetHeight) / 2}px`;
-  circle.style.width = `${ww * 0.4}px`;
-  circle.style.height = `${ww * 0.4}px`;
-  circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
-  circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
+    const ww = content.offsetWidth;
+    const wh = content.offsetHeight;
+    kebbi.style.left = `${(ww - kebbi.offsetWidth) / 2}px`;
+    kebbi.style.top = `${(wh * 0.8 - kebbi.offsetHeight) / 2}px`;
+    circle.style.width = `${ww * 0.4}px`;
+    circle.style.height = `${ww * 0.4}px`;
+    circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
+    circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
   }
 
   imgPosition();
