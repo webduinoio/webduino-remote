@@ -19,16 +19,18 @@
   // 凱比機器人和中間的圓形 logo 定位
   const kebbi = document.getElementById('svgKebbi');
   const circle = document.querySelector('.circle');
-  const ww = content.offsetWidth;
-  const wh = content.offsetHeight;
-  const ox = (ww - kebbi.offsetWidth) / 2;
-  const oy = (wh * 0.8 - kebbi.offsetHeight) / 2;
-  kebbi.style.left = `${ox}px`;
-  kebbi.style.top = `${oy}px`;
-  circle.style.width = `${ww * 0.4}px`;
-  circle.style.height = `${ww * 0.4}px`;
-  circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
-  circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
+  function imgPosition() {
+    const ww = content.offsetWidth;
+    const wh = content.offsetHeight;
+    kebbi.style.left = `${(ww - kebbi.offsetWidth) / 2}px`;
+    kebbi.style.top = `${(wh * 0.8 - kebbi.offsetHeight) / 2}px`;
+    circle.style.width = `${ww * 0.4}px`;
+    circle.style.height = `${ww * 0.4}px`;
+    circle.style.left = `${(ww - circle.offsetWidth) / 2}px`;
+    circle.style.top = `${(wh * 0.8 - circle.offsetHeight) / 2}px`;
+  }
+
+  imgPosition();
 
   // 預設值
   let list = {
@@ -113,7 +115,7 @@
     save(list);
   } else {
     // 讀取 localStorage 資料，沒有的話就套用預設值
-    let read = JSON.parse(localStorage.getItem('kebbiMobileData'));
+    let read = JSON.parse(localStorage.getItem('kebbiMobileEnData'));
     if (read) {
       list = read;
     }
@@ -157,7 +159,7 @@
 
   // 暫存到 localStorage 的函式
   function save(val) {
-    localStorage.setItem('kebbiMobileData', JSON.stringify(val));
+    localStorage.setItem('kebbiMobileEnData', JSON.stringify(val));
   }
 
   // input 欄位套用預設值
@@ -292,10 +294,10 @@
         // 邊界在中心的周圍 1/3 小車寬/高的距離
         const kxCenter = kx + carSize.width / 2;  // 車子中心點 x 座標
         const kyCenter = ky + carSize.height / 2; // 車子中心點 y 座標
-        const leftSide = ww * 0.5 - carSize.width / 3;  // 左邊界，小於這個值，判定車子移動到左邊
-        const rightSide = ww * 0.5 + carSize.width / 3; // 右邊界，大於這個值，判定車子移動到右邊
-        const topSide = oy + carSize.height / 6;        // 上邊界，小於這個值，判定車子移動到上面
-        const bottomSide = oy + 5 * carSize.height / 6; // 下邊界，小於這個值，判定車子移動到下面
+        const leftSide = content.offsetWidth * 0.5 - carSize.width / 3;  // 左邊界，小於這個值，判定車子移動到左邊
+        const rightSide = content.offsetWidth * 0.5 + carSize.width / 3; // 右邊界，大於這個值，判定車子移動到右邊
+        const topSide = (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 + carSize.height / 6;        // 上邊界，小於這個值，判定車子移動到上面
+        const bottomSide = (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 + 5 * carSize.height / 6; // 下邊界，小於這個值，判定車子移動到下面
 
         if (kxCenter < leftSide) {
           if (!send.left) {
@@ -353,8 +355,8 @@
       drag = false;
       kebbi.classList.remove('target');
       kebbi.classList.add('reset');
-      kebbi.style.left = `${ox}px`;
-      kebbi.style.top = `${oy}px`;
+      kebbi.style.left = `${(content.offsetWidth - kebbi.offsetWidth) / 2}px`;
+      kebbi.style.top = `${(content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2}px`;
     }
 
     function updateCarSize() {
@@ -379,8 +381,6 @@
   }
 
   // 處理中間圖片跟隨視窗大小移動位置
-  window.addEventListener('resize', () => {
-    location.reload();
-  });
+  window.addEventListener('resize', imgPosition);
 
 }();
