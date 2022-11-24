@@ -350,13 +350,12 @@
         console.log('reset');
         mqttPush(list.topic1, list.kebbiReset);
       }
-
+      sendCheck();
       drag = false;
       kebbi.classList.remove('target');
       kebbi.classList.add('reset');
       kebbi.style.left = `${(content.offsetWidth - kebbi.offsetWidth) / 2}px`;
       kebbi.style.top = `${(content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2}px`;
-      sendCheck();
     }
 
     function updateCarSize() {
