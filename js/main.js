@@ -86,7 +86,7 @@
   });
   saveBtn.addEventListener('click', async function () {
     let t = new Date();
-    list.time = `${t.getFullYear()}/${t.getMonth()*1+1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
+    list.time = `${t.getFullYear()}/${t.getMonth() * 1 + 1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
     let url = `${urlOrigin}${urlPath}#${write.key}`;
@@ -380,6 +380,9 @@
   }
 
   // 處理中間圖片跟隨視窗大小移動位置
-  window.addEventListener('resize', imgPosition);
+  window.addEventListener('resize', () => {
+    kebbi.classList.remove('reset');
+    imgPosition();
+  });
 
 }();

@@ -6,13 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v1.0.2] - 2022.11.29
+
+### Fixed
+
+- 萬用遙控器小車拖拉過後，翻轉畫面小車位置偏移
+
 ## [v1.0.1] - 2022.11.15
 
 ### Fixed
 
 - 使用手機開啟萬用遙控器輸入文字會刷新畫面，導致無法正常完成操作
 
-## [v1.0.0] 2022.11.1
+## [v1.0.0] - 2022.11.1
 
 ### Fixed
 
@@ -39,6 +45,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - 拿掉 webduinojs 的部份
 - 獨立的 mqttClient.js
 
-[unreleased]: https://github.com/webduinoio/webduino-remote/compare/v1.0.1...HEAD
+[unreleased]: https://github.com/webduinoio/webduino-remote/compare/v1.0.2...HEAD
+[v1.0.2]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.2
 [v1.0.1]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.1
 [v1.0.0]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.0
