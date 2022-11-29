@@ -380,6 +380,9 @@
   }
 
   // 處理中間圖片跟隨視窗大小移動位置
-  window.addEventListener('resize', imgPosition);
+  window.addEventListener('resize', () => {
+    kebbi.classList.remove('reset');
+    imgPosition();
+  });
 
 }();
