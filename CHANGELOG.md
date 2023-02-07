@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+
+## [v1.0.3] - 2023.2.7
+
+### Added
+
+- 埋設 GTM 代碼
+
 ## [v1.0.2] - 2022.11.29
 
 ### Fixed
@@ -45,7 +52,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - 拿掉 webduinojs 的部份
 - 獨立的 mqttClient.js
 
-[unreleased]: https://github.com/webduinoio/webduino-remote/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/webduinoio/webduino-remote/compare/v1.0.3...HEAD
+[v1.0.3]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.3
 [v1.0.2]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.2
 [v1.0.1]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.1
 [v1.0.0]: https://github.com/webduinoio/webduino-remote/releases/tag/v1.0.0
