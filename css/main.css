@@ -552,3 +552,16 @@ input {
   -moz-appearance: none;
   appearance: none;
 }
+
+body #svgKebbi .img-aicar,
+body #svgKebbi .img-kebbi {
+  display: none;
+}
+
+body.aicar #svgKebbi .img-aicar {
+  display: block;
+}
+
+body.kebbi #svgKebbi .img-kebbi {
+  display: block;
+}
