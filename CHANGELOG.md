@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- 增加凱比機器人圖像
 
 ## [v1.0.3] - 2023.2.7
 
