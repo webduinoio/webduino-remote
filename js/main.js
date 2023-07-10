@@ -66,33 +66,34 @@
     btn9n: '按鈕 10',
   };
 
-  const urlOrigin = location.origin;
-  const urlPath = location.pathname;
-  const urlHash = location.hash.replace('#', '');
   const config = {
     databaseURL: 'https://webbit-remote.firebaseio.com/',
   };
   firebase.initializeApp(config);
   const database = firebase.database();
+  const urlObject = new URL(location.href);
 
   /* firebase 存檔 */
   const saveBtn = document.getElementById('saveBtn');
   const popup = document.getElementById('popup');
   const popupClose = document.getElementById('popupClose');
   const saveUrl = document.getElementById('saveUrl');
+  const getTimeForFirebase = () => {
+    const t = new Date();
+    return `${t.getFullYear()}/${
+      t.getMonth() * 1 + 1
+    }/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
+  };
   popupClose.addEventListener('click', () => {
     popup.classList.remove('show');
   });
   saveBtn.addEventListener('click', async function () {
-    let t = new Date();
-    list.time = `${t.getFullYear()}/${
-      t.getMonth() * 1 + 1
-    }/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
-    let write = await database.ref('/').push(list);
+    list.time = getTimeForFirebase();
+    const write = await database.ref('/').push(list);
+    urlObject.hash = write.key;
     popup.classList.add('show');
-    let url = `${urlOrigin}${urlPath}#${write.key}`;
-    saveUrl.innerText = url;
-    window.history.pushState({}, 0, url);
+    saveUrl.innerText = urlObject;
+    window.history.pushState({}, 0, urlObject);
     document.getSelection().removeAllRanges();
   });
 
@@ -109,9 +110,9 @@
   });
 
   /* firebase 讀檔 */
-  if (urlHash) {
+  if (urlObject.hash) {
     list = await database
-      .ref(urlHash)
+      .ref(urlObject.hash.substring(1))
       .once('value')
       .then((result) => {
         return result.val();
@@ -172,7 +173,8 @@
     let m = self.getAttribute('m');
     self.value = list[m];
     self.addEventListener('input', () => {
-      window.history.pushState({}, 0, `${urlOrigin}${urlPath}`);
+      urlObject.hash = '';
+      window.history.pushState({}, 0, urlObject);
       list[m] = self.value;
       if (btnObj[m]) {
         btnObj[m].innerHTML = `<span>${self.value}</span>`;
