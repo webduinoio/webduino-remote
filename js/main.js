@@ -1,5 +1,4 @@
-~async function () {
-
+~(async function () {
   function handleCustomButton() {
     const sendButton = document.querySelector('.input-group-button');
     const customMessage = document.getElementById('customMessage');
@@ -64,14 +63,14 @@
     btn8: '9',
     btn8n: '按鈕 9',
     btn9: '10',
-    btn9n: '按鈕 10'
+    btn9n: '按鈕 10',
   };
 
   const urlOrigin = location.origin;
   const urlPath = location.pathname;
   const urlHash = location.hash.replace('#', '');
   const config = {
-    databaseURL: "https://webbit-remote.firebaseio.com/"
+    databaseURL: 'https://webbit-remote.firebaseio.com/',
   };
   firebase.initializeApp(config);
   const database = firebase.database();
@@ -86,7 +85,9 @@
   });
   saveBtn.addEventListener('click', async function () {
     let t = new Date();
-    list.time = `${t.getFullYear()}/${t.getMonth() * 1 + 1}/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
+    list.time = `${t.getFullYear()}/${
+      t.getMonth() * 1 + 1
+    }/${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`;
     let write = await database.ref('/').push(list);
     popup.classList.add('show');
     let url = `${urlOrigin}${urlPath}#${write.key}`;
@@ -109,9 +110,12 @@
 
   /* firebase 讀檔 */
   if (urlHash) {
-    list = await database.ref(urlHash).once('value').then(result => {
-      return result.val();
-    });
+    list = await database
+      .ref(urlHash)
+      .once('value')
+      .then((result) => {
+        return result.val();
+      });
     save(list);
   } else {
     // 讀取 localStorage 資料，沒有的話就套用預設值
@@ -148,11 +152,10 @@
     main01.classList.remove('hide');
   });
 
-
   // 顯示十顆按鈕的文字
   const btn = document.querySelectorAll('.btn');
   let btnObj = {};
-  btn.forEach(e => {
+  btn.forEach((e) => {
     btnObj[e.id] = document.getElementById(e.id);
     e.innerHTML = `<span>${list[e.id]}</span>`;
   });
@@ -164,7 +167,7 @@
 
   // input 欄位套用預設值
   const input = document.querySelectorAll('input');
-  input.forEach(e => {
+  input.forEach((e) => {
     let self = e;
     let m = self.getAttribute('m');
     self.value = list[m];
@@ -196,10 +199,10 @@
     if (topic == list.topic1) {
       webduinoBroadcastor.send({
         topic: topic,
-        message: (msg).toString()
+        message: msg.toString(),
       });
     }
-  }
+  };
   // 接收 mqtt 訊號
   const message = document.getElementById('message');
   const messageH4 = document.querySelector('#message h4');
@@ -215,12 +218,12 @@
         }, 3000);
       }
     });
-  }
+  };
   mqttGet(list.topic2);
 
   // 下方怪獸按鈕點擊事件
   const monsterBtn = document.querySelectorAll('.monster-btn');
-  monsterBtn.forEach(e => {
+  monsterBtn.forEach((e) => {
     let self = e;
     self.addEventListener('click', () => {
       mqttPush(list.topic1, list[self.id]);
@@ -232,7 +235,7 @@
   });
 
   // 十顆按鈕點擊事件
-  btn.forEach(e => {
+  btn.forEach((e) => {
     let self = e;
     let msg = self.getAttribute('msg');
     self.addEventListener('click', () => {
@@ -251,7 +254,7 @@
     top: false,
     bottom: false,
     left: false,
-    right: false
+    right: false,
   };
   function sendCheck(type) {
     send = {
@@ -259,7 +262,7 @@
       top: false,
       bottom: false,
       left: false,
-      right: false
+      right: false,
     };
     if (type) {
       send[type] = true;
@@ -287,16 +290,20 @@
       }
       if (kebbi.classList.contains('target')) {
         const kx = kebbi.offsetLeft; // 車子 left
-        const ky = kebbi.offsetTop;  // 車子 top
+        const ky = kebbi.offsetTop; // 車子 top
         const carSize = getCarSize();
         // 注意，小車一開始的中心點 y 座標，不等於畫面的中心點 y 座標。
         // 邊界在中心的周圍 1/3 小車寬/高的距離
-        const kxCenter = kx + carSize.width / 2;  // 車子中心點 x 座標
+        const kxCenter = kx + carSize.width / 2; // 車子中心點 x 座標
         const kyCenter = ky + carSize.height / 2; // 車子中心點 y 座標
-        const leftSide = content.offsetWidth * 0.5 - carSize.width / 3;  // 左邊界，小於這個值，判定車子移動到左邊
+        const leftSide = content.offsetWidth * 0.5 - carSize.width / 3; // 左邊界，小於這個值，判定車子移動到左邊
         const rightSide = content.offsetWidth * 0.5 + carSize.width / 3; // 右邊界，大於這個值，判定車子移動到右邊
-        const topSide = (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 + carSize.height / 6;        // 上邊界，小於這個值，判定車子移動到上面
-        const bottomSide = (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 + 5 * carSize.height / 6; // 下邊界，小於這個值，判定車子移動到下面
+        const topSide =
+          (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 +
+          carSize.height / 6; // 上邊界，小於這個值，判定車子移動到上面
+        const bottomSide =
+          (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2 +
+          (5 * carSize.height) / 6; // 下邊界，小於這個值，判定車子移動到下面
 
         if (kxCenter < leftSide) {
           if (!send.left) {
@@ -355,7 +362,9 @@
       kebbi.classList.remove('target');
       kebbi.classList.add('reset');
       kebbi.style.left = `${(content.offsetWidth - kebbi.offsetWidth) / 2}px`;
-      kebbi.style.top = `${(content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2}px`;
+      kebbi.style.top = `${
+        (content.offsetHeight * 0.8 - kebbi.offsetHeight) / 2
+      }px`;
     }
 
     function updateCarSize() {
@@ -384,5 +393,4 @@
     kebbi.classList.remove('reset');
     imgPosition();
   });
-
-}();
+})();
