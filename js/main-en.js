@@ -68,6 +68,7 @@
   const urlOrigin = location.origin;
   const urlPath = location.pathname;
   const urlHash = location.hash.replace('#', '');
+  const urlParams = new URLSearchParams(window.location.search);
   const config = {
     databaseURL: "https://webbit-remote.firebaseio.com/"
   };
@@ -103,6 +104,13 @@
       copy.innerText = 'Copy link';
       copy.classList.remove('copied');
     }, 1000);
+  });
+
+  // 讀取 query string 中的參數
+  urlParams.forEach((value, key) => {
+    if (key in list) {
+      list[key] = value;
+    }
   });
 
   /* firebase 讀檔 */
