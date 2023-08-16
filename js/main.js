@@ -66,6 +66,10 @@
     btn9n: '按鈕 10',
   };
 
+  const urlOrigin = location.origin;
+  const urlPath = location.pathname;
+  const urlHash = location.hash.replace('#', '');
+  const urlParams = new URLSearchParams(window.location.search);
   const config = {
     databaseURL: 'https://webbit-remote.firebaseio.com/',
   };
@@ -107,6 +111,13 @@
       copy.innerText = '複製連結';
       copy.classList.remove('copied');
     }, 1000);
+  });
+
+  // 讀取 query string 中的參數
+  urlParams.forEach((value, key) => {
+    if (key in list) {
+      list[key] = value;
+    }
   });
 
   /* firebase 讀檔 */
